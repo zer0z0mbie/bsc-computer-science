@@ -11,3 +11,7 @@ __pycache__/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Program versions
+program_versions/
+*_v*.py
