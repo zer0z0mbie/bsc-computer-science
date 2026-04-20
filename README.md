@@ -1,1 +1,1 @@
-# BSc Computer Science 
+# BSc Computer Science
