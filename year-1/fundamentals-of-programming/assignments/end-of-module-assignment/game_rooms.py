@@ -1,4 +1,4 @@
-def movement(room_dictionary):
+def player_movement(room_dictionary):
     while True:
         print("You can move:")
         for direction in room_dictionary:
@@ -24,11 +24,15 @@ def room_1():
     }
 
     # ------ Room actions start here ------ #
-    #print(f"You're now in room {current_room}")
-    #print("There will be an event here. After it, call movement.")
+    # Player current location
+    print(f"You're now in room {current_room}")
+    # Room event
+    print("There will be an event here. After it, call movement.")
 
-    #next_room = movement(room_1_directions)
-    #print(f"(DEBUG) Next room is {next_room}")
+    # Next room
+    next_room = player_movement(room_1_directions)
+    print()
+    return next_room
 
 def room_2():
     # ------ Variables, Data Structures, and Functions ------ #
@@ -37,6 +41,17 @@ def room_2():
         "N": {"Coordinate": "North", "New Room": 3},
         "S": {"Coordinate": "South", "New Room": 1}
     }
+
+    # ------ Room actions start here ------ #
+    # Player current location
+    print(f"You're now in room {current_room}")
+    # Room event
+    print("There will be an event here. After it, call movement.")
+
+    # Next room
+    next_room = player_movement(room_2_directions)
+    print()
+    return next_room
 
 def room_3():
     # ------ Variables, Data Structures, and Functions ------ #
@@ -48,6 +63,17 @@ def room_3():
         "E": {"Coordinate": "East", "New Room": 5}
     }
 
+    # ------ Room actions start here ------ #
+    # Player current location
+    print(f"You're now in room {current_room}")
+    # Room event
+    print("There will be an event here. After it, call movement.")
+
+    # Next room
+    next_room = player_movement(room_3_directions)
+    print()
+    return next_room
+
 def room_4():
     # ------ Variables, Data Structures, and Functions ------ #
     current_room = 4
@@ -55,6 +81,17 @@ def room_4():
         "N": {"Coordinate": "North", "New Room": 6},
         "E": {"Coordinate": "East", "New Room": 3}
     }
+
+    # ------ Room actions start here ------ #
+    # Player current location
+    print(f"You're now in room {current_room}")
+    # Room event
+    print("There will be an event here. After it, call movement.")
+
+    # Next room
+    next_room = player_movement(room_4_directions)
+    print()
+    return next_room
 
 def room_5():
     # ------ Variables, Data Structures, and Functions ------ #
@@ -64,6 +101,17 @@ def room_5():
         "W": {"Coordinate": "West", "New Room": 3}
     }
 
+    # ------ Room actions start here ------ #
+    # Player current location
+    print(f"You're now in room {current_room}")
+    # Room event
+    print("There will be an event here. After it, call movement.")
+
+    # Next room
+    next_room = player_movement(room_5_directions)
+    print()
+    return next_room
+
 def room_6():
     # ------ Variables, Data Structures, and Functions ------ #
     current_room = 6
@@ -72,6 +120,17 @@ def room_6():
         "S": {"Coordinate": "South", "New Room": 4},
         "E": {"Coordinate": "East", "New Room": 7}
     }
+
+    # ------ Room actions start here ------ #
+    # Player current location
+    print(f"You're now in room {current_room}")
+    # Room event
+    print("There will be an event here. After it, call movement.")
+
+    # Next room
+    next_room = player_movement(room_6_directions)
+    print()
+    return next_room
 
 def room_7():
     pass # Player dies here
@@ -85,6 +144,17 @@ def room_8():
         "W": {"Coordinate": "West", "New Room": 7}
     }
 
+    # ------ Room actions start here ------ #
+    # Player current location
+    print(f"You're now in room {current_room}")
+    # Room event
+    print("There will be an event here. After it, call movement.")
+
+    # Next room
+    next_room = player_movement(room_8_directions)
+    print()
+    return next_room
+
 def room_9():
     # ------ Variables, Data Structures, and Functions ------ #
     current_room = 9
@@ -94,11 +164,19 @@ def room_9():
         "W": {"Coordinate": "West", "New Room": 7}
     }
 
+    # ------ Room actions start here ------ #
+    # Player current location
+    print(f"You're now in room {current_room}")
+    # Room event
+    print("There will be an event here. After it, call movement.")
+
+    # Next room
+    next_room = player_movement(room_9_directions)
+    print()
+    return next_room
+
 def room_10():
     pass # Boss
 
 def room_11():
     pass # Win
-
-# testing functions
-room_1()
