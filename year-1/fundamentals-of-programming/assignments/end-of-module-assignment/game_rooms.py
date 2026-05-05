@@ -1,27 +1,66 @@
-def player_movement(room_dictionary):
+room_directions = {
+    1: {
+        "N": {"Coordinate": "North", "New Room": 2}
+    },
+    2: {
+        "N": {"Coordinate": "North", "New Room": 3},
+        "S": {"Coordinate": "South", "New Room": 1}
+    },
+    3: {
+        "N": {"Coordinate": "North", "New Room": 7},
+        "S": {"Coordinate": "South", "New Room": 2},
+        "W": {"Coordinate": "West", "New Room": 4},
+        "E": {"Coordinate": "East", "New Room": 5}
+    },
+    4: {
+        "N": {"Coordinate": "North", "New Room": 6},
+        "E": {"Coordinate": "East", "New Room": 3}
+    },
+    5: {
+        "N": {"Coordinate": "North", "New Room": 8},
+        "W": {"Coordinate": "West", "New Room": 3}
+    },
+    6: {
+        "N": {"Coordinate": "North", "New Room": 10},
+        "S": {"Coordinate": "South", "New Room": 4},
+        "E": {"Coordinate": "East", "New Room": 7}
+    },
+    7: {},  # death room
+    8: {
+        "N": {"Coordinate": "North", "New Room": 9},
+        "S": {"Coordinate": "South", "New Room": 5},
+        "W": {"Coordinate": "West", "New Room": 7}
+    },
+    9: {
+        "N": {"Coordinate": "North", "New Room": 10},
+        "S": {"Coordinate": "South", "New Room": 8},
+        "W": {"Coordinate": "West", "New Room": 7}
+    },
+    10: {},  # boss
+    11: {}   # win
+}
+
+def player_movement(current_room):
     while True:
         print("You can move:")
-        for direction in room_dictionary:
-            print(f"- {room_dictionary[direction]['Coordinate']} (Type '{direction}')")
+        for direction in room_directions[current_room]:
+            print(f"- {room_directions[current_room][direction]['Coordinate']} (Type '{direction}')")
 
         coordinate = input("Where do you go? ").upper()
 
-        if coordinate in room_dictionary:
-            go_to_direction = room_dictionary[coordinate]
+        if coordinate in room_directions[current_room]:
+            go_to_direction = room_directions[current_room][coordinate]
             print(f"You move {go_to_direction['Coordinate']} and go to Room {go_to_direction['New Room']}")
             return go_to_direction["New Room"]
         else:
             print("Invalid coordinate. Choose between:", end=" ")
-            for direction, destination  in room_dictionary.items():
+            for direction, destination  in room_directions[current_room].items():
                 print(f"{destination ['Coordinate']} (Type '{direction}')", end=" ")
             print()
 
 def room_1():
     # ------ Variables, Data Structures, and Functions ------ #
     current_room = 1
-    room_1_directions = {
-        "N": {"Coordinate": "North", "New Room": 2}
-    }
 
     # ------ Room actions start here ------ #
     # Player current location
@@ -30,17 +69,13 @@ def room_1():
     print("There will be an event here. After it, call movement.")
 
     # Next room
-    next_room = player_movement(room_1_directions)
+    next_room = player_movement(current_room)
     print()
     return next_room
 
 def room_2():
     # ------ Variables, Data Structures, and Functions ------ #
     current_room = 2
-    room_2_directions = {
-        "N": {"Coordinate": "North", "New Room": 3},
-        "S": {"Coordinate": "South", "New Room": 1}
-    }
 
     # ------ Room actions start here ------ #
     # Player current location
@@ -49,19 +84,13 @@ def room_2():
     print("There will be an event here. After it, call movement.")
 
     # Next room
-    next_room = player_movement(room_2_directions)
+    next_room = player_movement(current_room)
     print()
     return next_room
 
 def room_3():
     # ------ Variables, Data Structures, and Functions ------ #
     current_room = 3
-    room_3_directions = {
-        "N": {"Coordinate": "North", "New Room": 7},
-        "S": {"Coordinate": "South", "New Room": 2},
-        "W": {"Coordinate": "West", "New Room": 4},
-        "E": {"Coordinate": "East", "New Room": 5}
-    }
 
     # ------ Room actions start here ------ #
     # Player current location
@@ -70,17 +99,13 @@ def room_3():
     print("There will be an event here. After it, call movement.")
 
     # Next room
-    next_room = player_movement(room_3_directions)
+    next_room = player_movement(current_room)
     print()
     return next_room
 
 def room_4():
     # ------ Variables, Data Structures, and Functions ------ #
     current_room = 4
-    room_4_directions = {
-        "N": {"Coordinate": "North", "New Room": 6},
-        "E": {"Coordinate": "East", "New Room": 3}
-    }
 
     # ------ Room actions start here ------ #
     # Player current location
@@ -89,17 +114,13 @@ def room_4():
     print("There will be an event here. After it, call movement.")
 
     # Next room
-    next_room = player_movement(room_4_directions)
+    next_room = player_movement(current_room)
     print()
     return next_room
 
 def room_5():
     # ------ Variables, Data Structures, and Functions ------ #
     current_room = 5
-    room_5_directions = {
-        "N": {"Coordinate": "North", "New Room": 8},
-        "W": {"Coordinate": "West", "New Room": 3}
-    }
 
     # ------ Room actions start here ------ #
     # Player current location
@@ -108,18 +129,13 @@ def room_5():
     print("There will be an event here. After it, call movement.")
 
     # Next room
-    next_room = player_movement(room_5_directions)
+    next_room = player_movement(current_room)
     print()
     return next_room
 
 def room_6():
     # ------ Variables, Data Structures, and Functions ------ #
     current_room = 6
-    room_6_directions = {
-        "N": {"Coordinate": "North", "New Room": 10},
-        "S": {"Coordinate": "South", "New Room": 4},
-        "E": {"Coordinate": "East", "New Room": 7}
-    }
 
     # ------ Room actions start here ------ #
     # Player current location
@@ -128,7 +144,7 @@ def room_6():
     print("There will be an event here. After it, call movement.")
 
     # Next room
-    next_room = player_movement(room_6_directions)
+    next_room = player_movement(current_room)
     print()
     return next_room
 
@@ -138,11 +154,6 @@ def room_7():
 def room_8():
     # ------ Variables, Data Structures, and Functions ------ #
     current_room = 8
-    room_8_directions = {
-        "N": {"Coordinate": "North", "New Room": 9},
-        "S": {"Coordinate": "South", "New Room": 5},
-        "W": {"Coordinate": "West", "New Room": 7}
-    }
 
     # ------ Room actions start here ------ #
     # Player current location
@@ -151,18 +162,13 @@ def room_8():
     print("There will be an event here. After it, call movement.")
 
     # Next room
-    next_room = player_movement(room_8_directions)
+    next_room = player_movement(current_room)
     print()
     return next_room
 
 def room_9():
     # ------ Variables, Data Structures, and Functions ------ #
     current_room = 9
-    room_9_directions = {
-        "N": {"Coordinate": "North", "New Room": 10},
-        "S": {"Coordinate": "South", "New Room": 8},
-        "W": {"Coordinate": "West", "New Room": 7}
-    }
 
     # ------ Room actions start here ------ #
     # Player current location
@@ -171,7 +177,7 @@ def room_9():
     print("There will be an event here. After it, call movement.")
 
     # Next room
-    next_room = player_movement(room_9_directions)
+    next_room = player_movement(current_room)
     print()
     return next_room
 
